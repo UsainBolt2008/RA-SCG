@@ -1,0 +1,8 @@
+{
+  "schema": "ra-scg.runtime-contract.v1",
+  "python": "3.10",
+  "paper_batch_size": 2,
+  "paper_seed": 0,
+  "required_nltk_resource": "averaged_perceptron_tagger_eng",
+  "setup_command": "python scripts/setup_nltk.py --download"
+}

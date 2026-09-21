@@ -1,0 +1,33 @@
+dataset:
+  name: RSITMD
+  root: /path/to/RSITMD
+  json: dataset_RSITMD.json
+  images_dir: images
+  split: test
+  expected_images: 452
+  expected_captions: 2260
+
+surrogate:
+  name: georsclip_vit_b32_ret2
+  checkpoint: /path/to/RS5M_ViT-B-32_RET-2.pt
+  architecture: ViT-B-32
+  capitalize_text: false
+  strict: false
+
+text:
+  frozen_ba_sp_captions: /path/to/rsitmd_georsclip_ba_sp.json
+  expected_candidate_bank_sha256: 5ef33aa978cb23f31d039b40835138f64e40a821f829772b86466d6b8623559f
+
+attack:
+  epsilon: 0.00784313725490196
+  step_size: 0.00196078431372549
+  steps: 10
+  batch_size: 2
+  seed: 0
+  momentum: 1.0
+  base_loss_alpha: 3.0
+  relation_lambda: 0.5
+
+runtime:
+  device: cuda:0
+  nltk_data: ./.nltk_data

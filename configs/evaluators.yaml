@@ -1,0 +1,42 @@
+# Paper evaluator registry. Edit only paths; hashes identify the frozen experiment assets.
+openai_clip_root: /path/to/OpenAI_CLIP
+open_clip_cache_dir: /path/to/open_clip_cache
+openai_clip_source_sha256:
+  clip/__init__.py: d7930eb290ebed432116795c91473200d098451a94c0aedd4ae0f934f97955e8
+  clip/clip.py: 9540f200fbf8145479fa655382a56dab048d238cc698b9cbd8df3b6d86d3f1b6
+  clip/model.py: 9902cbe5ee90a1da2aa3e6f043e8a23dc1f8831193b963785c9af03d5c7bef2c
+  clip/simple_tokenizer.py: d1b09f10ed3d1e2c343619cb98cbfacb92363dd8607526a43aa7fe2d60d15bad
+models:
+  remoteclip_vit_b32:
+    backend: open_clip
+    architecture: ViT-B-32
+    checkpoint: /path/to/RemoteCLIP-ViT-B-32.pt
+    checkpoint_sha256: 60014e395d930a3f2963d1d89c8522bf4ad56775571e4356e866864789af85c4
+    strict: true
+    capitalize_text: true
+  remoteclip_rn50:
+    backend: open_clip
+    architecture: RN50
+    checkpoint: /path/to/RemoteCLIP-RN50.pt
+    checkpoint_sha256: 11657d33a87fc197e19a7654a76a632415ebea42feb8a61025ef389f8990c0f9
+    strict: true
+    capitalize_text: true
+  georsclip_vit_b32_ret2:
+    backend: open_clip
+    architecture: ViT-B-32
+    checkpoint: /path/to/RS5M_ViT-B-32_RET-2.pt
+    checkpoint_sha256: 9e0c6b42f68db77c326ebbed6b4b91ecaa33b10962940648e5282fcad2f05897
+    strict: false
+    capitalize_text: false
+  openai_clip_vit_b32:
+    backend: openai_clip
+    architecture: ViT-B/32
+    checkpoint: /path/to/ViT-B-32.pt
+    checkpoint_sha256: 40d365715913c9da98579312b702a82c18be219cc2a73407c4526f58eba950af
+    capitalize_text: false
+  openai_clip_rn50:
+    backend: openai_clip
+    architecture: RN50
+    checkpoint: /path/to/RN50.pt
+    checkpoint_sha256: afeb0e10f9e5a86da6080e35cf09123aca3b358a0c3e3b6c78a7b63bc04b6762
+    capitalize_text: false

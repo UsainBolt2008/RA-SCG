@@ -1,0 +1,36 @@
+[build-system]
+requires = [
+    "setuptools>=68",
+    "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ra-scg"
+version = "0.4.0"
+description = "Relation-Augmented Semantic Consensus Gradient for remote-sensing image-text retrieval attacks"
+requires-python = ">=3.10,<3.11"
+
+dependencies = [
+    "torch==2.1.2",
+    "torchvision==0.16.2",
+    "open-clip-torch==2.24.0",
+    "transformers==4.28.1",
+    "nltk==3.9.1",
+    "numpy==1.26.4",
+    "timm==0.9.16",
+    "ftfy==6.3.1",
+    "Pillow",
+    "regex",
+    "PyYAML",
+    "tqdm",
+    "scipy",
+    "pandas"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "ra_scg*",
+    "evaluation*"
+]

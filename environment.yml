@@ -1,0 +1,26 @@
+name: ra-scg
+
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - torch==2.1.2
+      - torchvision==0.16.2
+      - open-clip-torch==2.24.0
+      - transformers==4.28.1
+      - nltk==3.9.1
+      - numpy==1.26.4
+      - timm==0.9.16
+      - ftfy==6.3.1
+      - Pillow
+      - regex
+      - PyYAML
+      - tqdm
+      - scipy
+      - pandas
+      - pytest

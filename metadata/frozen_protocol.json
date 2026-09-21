@@ -1,0 +1,65 @@
+{
+  "schema": "ra-scg.public-protocol.v1",
+  "method": "RA-SCG",
+  "version": "0.4.0",
+  "task": "bidirectional remote-sensing image-text retrieval attack",
+  "threat_model": {
+    "transfer_based_black_box": true,
+    "surrogate_only_generation": true,
+    "target_queries": 0,
+    "live_text_candidate_search": false
+  },
+  "image_attack": {
+    "linf_epsilon": 0.00784313725490196,
+    "step_size": 0.00196078431372549,
+    "updates": 10,
+    "outer_batch_size": 2,
+    "seed": 0,
+    "momentum": 1.0,
+    "base_loss_alpha": 3.0,
+    "relation_lambda": 0.5,
+    "selected_vit_layers_zero_based": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "views": [
+      "identity",
+      "global_075",
+      "global_125",
+      "semantic_zoom_075",
+      "semantic_zoom_050"
+    ],
+    "relation_residual_scale": "lambda * relation_confidence",
+    "relation_confidence_definition": "valid relation-support coverage across the five paired captions"
+  },
+  "evaluation": {
+    "fixed_gallery": true,
+    "conditional_asr_k": [
+      1,
+      5,
+      10
+    ],
+    "directions": [
+      "I2T",
+      "T2I"
+    ],
+    "sources": [
+      "remoteclip_vit_b32",
+      "georsclip_vit_b32_ret2"
+    ],
+    "evaluators": [
+      "remoteclip_vit_b32",
+      "remoteclip_rn50",
+      "georsclip_vit_b32_ret2",
+      "openai_clip_vit_b32",
+      "openai_clip_rn50"
+    ],
+    "bb4": "exclude active source; macro-average four non-source victims x two directions"
+  },
+  "frozen_sp_bank_sha256": {
+    "RSITMD": "5ef33aa978cb23f31d039b40835138f64e40a821f829772b86466d6b8623559f",
+    "RSICD": "6d92735177e6125ce5ce3479d85cb9bc8c4d0759ef360df03ee7df56ca60a366"
+  }
+}

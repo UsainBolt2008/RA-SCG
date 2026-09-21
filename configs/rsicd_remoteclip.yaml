@@ -1,0 +1,32 @@
+dataset:
+  name: RSICD
+  root: /path/to/RSICD
+  json: dataset_rsicd.json
+  images_dir: images
+  split: test
+  expected_images: 1093
+  expected_captions: 5465
+
+surrogate:
+  name: remoteclip_vit_b32
+  checkpoint: /path/to/RemoteCLIP-ViT-B-32.pt
+  architecture: ViT-B-32
+  capitalize_text: true
+
+text:
+  frozen_ba_sp_captions: /path/to/rsicd_remoteclip_ba_sp.json
+  expected_candidate_bank_sha256: 6d92735177e6125ce5ce3479d85cb9bc8c4d0759ef360df03ee7df56ca60a366
+
+attack:
+  epsilon: 0.00784313725490196
+  step_size: 0.00196078431372549
+  steps: 10
+  batch_size: 2
+  seed: 0
+  momentum: 1.0
+  base_loss_alpha: 3.0
+  relation_lambda: 0.5
+
+runtime:
+  device: cuda:0
+  nltk_data: ./.nltk_data
