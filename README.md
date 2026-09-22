@@ -105,3 +105,32 @@ See `docs/evaluation.md` and `docs/reproduction.md` for the evaluation workflow.
 
 See `docs/protocol.md`, `docs/method_to_code.md`, `docs/sp_bank.md`,
 `docs/nltk.md`, and `docs/reproduction.md`.
+
+
+## Paper reference results
+
+The frozen paper reference reports conditional source-excluded BB4 ASR (%).
+For each active source, BB4 averages the four non-source victims and both
+I2T/T2I directions. Full-precision values are stored in
+`metadata/paper_reference_results.json`.
+
+| Dataset | Source | ASR@1 | ASR@5 | ASR@10 |
+|---|---|---:|---:|---:|
+| RSITMD | RemoteCLIP ViT-B/32 | 68.1038 | 53.1373 | 47.2808 |
+| RSITMD | GeoRSCLIP ViT-B/32 RET-2 | 73.7608 | 63.8786 | 57.0512 |
+| RSICD | RemoteCLIP ViT-B/32 | 72.3616 | 61.8977 | 55.2675 |
+| RSICD | GeoRSCLIP ViT-B/32 RET-2 | 79.0901 | 71.9807 | 65.9644 |
+| **RSITMD aggregate** | **two-source macro** | **70.9323** | **58.5080** | **52.1660** |
+| **RSICD aggregate** | **two-source macro** | **75.7259** | **66.9392** | **60.6159** |
+| **Overall** | **dataset macro** | **73.3291** | **62.7236** | **56.3910** |
+
+The full-precision overall values are:
+
+- ASR@1: `73.329095613922`
+- ASR@5: `62.7235671212366`
+- ASR@10: `56.39095066466163`
+
+
+## License
+
+This project is released under the MIT License. See `LICENSE`.
